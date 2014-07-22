@@ -1,0 +1,157 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+@font-face{ 
+	font-family: 'chalkduster';
+	src: url('fonts/chalkduster-webfont.woff') format('woff');	     
+}
+
+body {
+	background: -webkit-radial-gradient(center, #40FF00 0%,#173B0B 100%); /* Chrome10+,Safari5.1+ */
+	font-family: 'chalkduster';
+	font-weight: bold;
+}
+
+#logo, #score {
+	text-align: center;
+}
+
+#logo {
+	margin-top: 10%;
+}
+
+#logo #title {
+	color: rgb(65, 25, 65);
+	position: relative;
+	top: -39;
+	font-size: 50px;
+	font-family: 'Lobster', cursive;
+}
+
+#logo img {
+	margin-right: 10px;
+	border: 5px solid black;
+	-webkit-transform:rotate(-3deg);
+	box-shadow: 1px 1px 14px #000000;
+	border-radius: 5px;
+}
+
+#score #you-recycled {
+	margin: 0;
+}
+
+#score #amount {
+	margin: 0;
+	margin-top: -21px;
+}
+
+#score #amount #number {
+	font-size: 100px;
+}
+
+#score #amount #gr {
+	font-size: 30px;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 12px;
+}
+
+@-webkit-keyframes expand{
+    0%{top:-500px}
+    100%{top:80px}
+}
+
+.new-recycle {
+	position: absolute;
+	left: 30%;
+	text-align: center;
+	background: white;
+	border: 5px solid black;
+	width: 500px;
+	top: 80px;
+	height: 300px;
+	-webkit-transform:rotate(-3deg); /* Opera, Chrome, and Safari */
+	box-shadow: 1px 1px 14px #000000;
+	border-radius: 10px;
+	-webkit-transition:all linear 0.5s;
+	-webkit-animation: expand 0.5s;
+}
+
+.new-recycle.ng-hide {
+	opacity: 0;
+	-webkit-animation: none;
+}
+
+.new-recycle h1 {
+	margin-right: 13px;
+	margin-bottom: 13px;
+	margin-top: 42px;
+}
+
+.new-recycle .content {
+	float: right;
+	width: 350px;
+}
+
+.type-sign {
+	background: rgb(61, 61, 153);
+	font-family: 'Oswald', sans-serif;
+	color: white;
+	width: 260px;
+	height: 61px;
+	padding: 0;
+	font-size: 30px;
+	margin-left: 37px;
+	border-radius: 4px;
+}
+
+.type-sign h2 {
+	margin: 0;
+	line-height: 58px;
+}
+
+.points-sign {
+	background: orange;
+	width: 300px;
+	height: 92px;
+	border-radius: 50%;
+	border: 4px solid rgb(253, 125, 40);
+	margin-top: 13px;
+	margin-left: 19px;
+	background: -webkit-radial-gradient(center, #FFFF00 0%,#FFA300 100%);
+	color: rgb(85, 3, 3);
+	font-family: 'Lobster', cursive;
+}
+
+.points-sign h3 {
+	margin: 0;
+	font-size: 70px;
+}
+
+.points-sign h3 .gr {
+	font-size: 20px;
+}
+
+
+#new-plastic-recycle img {
+	height: 300px;
+	float: left;
+}
+
+
+#new-paper-recycle img {
+	height: 267px;
+	float: left;
+	padding-left: 8px;
+	margin-top: 14px;
+	position: relative;
+	left: 12px;
+}
+
+#new-paper-recycle .type-sign {
+	font-family: 'Lobster', cursive;
+}

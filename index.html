@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>iSammy</title>
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="js/angular-1.2.js"></script>
+	<script type="text/javascript" src="js/angular-animate.js"></script>
+	<script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body ng-app="iSammy" ng-controller="myController" ng-init="init()">
+
+<div id="logo">
+	<h1><img src="images/pink-dock-logo.png" /><span id="title">Pink Duck</span></h1>
+</div>
+		
+<div id="score">
+	<h2 id="you-recycled">You Recycled:</h2>
+	<h3 id="amount"><span id="number">{{totalGrams|number:0}}</span><span id="gr">gr</span></h3>
+</div>
+
+<div id="footer">
+	<img src="images/itc-logo.png" />
+</div>
+
+<div id="new-plastic-recycle" class="new-recycle" ng-show="newPlasticRecycle">
+	<img src="images/water-bottle.png" />
+	<div class="content">		
+		<h1>New Recycle!</h1>
+		<div class="type-sign">
+			<h2>Plastic</h2>
+		</div>
+		<div class="points-sign">
+			<h3>+<span class="amount">{{newRecycleModel.grams}}</span><span class="gr">gr</span></h3>
+		</div>
+	</div>
+</div>
+
+
+<div id="new-paper-recycle" class="new-recycle" ng-show="newPaperRecycle">
+	<img src="images/paper-recycle.gif" />
+	<div class="content">		
+		<h1>New Recycle!</h1>
+		<div class="type-sign">
+			<h2>Paper</h2>
+		</div>
+		<div class="points-sign">
+			<h3>+<span class="amount">{{newRecycleModel.grams|number:0}}</span><span class="gr">gr</span></h3>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
