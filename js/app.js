@@ -18,8 +18,17 @@ app.controller('myController', function($scope) {
 
  	$scope.totalGrams = 0;
  	$scope.totalGramsToDisplay = 0;
+ 	
  	$scope.newRecycleModel = null;
  	$scope.showNewRecycle = false;
+ 	
+ 	$scope.showBadge = false;
+ 	$scope.badge = null;
+ 	$scope.badges = [{ name: 'lightbulb', grams: 300 }, 
+ 					{ name: 'tree', grams: 700 }, 
+ 					{ name: 'dolphin', grams: 1000 }, 
+ 					{ name: 'planet', grams: 1300 }];
+ 	
 
  	$scope.mock = function() {
  		
@@ -38,7 +47,8 @@ app.controller('myController', function($scope) {
  	}
 
  	$scope.init = function() {
- 		$scope.mock();
+ 		$scope.mock(); 		
+ 		
  	};
 
  	$scope.newRecycle = function(newRecycle) {
@@ -54,8 +64,25 @@ app.controller('myController', function($scope) {
  		}, 1500);
 
  	}
+
+ 	$scope.newBadge = function(badge) {
+
+ 		if (badge.name == $scope.badge) return;
+
+ 		$scope.showBadge = false;
+ 		setTimeout(function() {
+ 			$scope.$apply(function() {
+
+ 				$scope.badge = badge.name;
+		 		$scope.showBadge = true;
+
+ 			});
+ 		}, 100);
+ 	}
+
  	$scope.$watch('totalGrams', function(newValue, oldValue) {
  		if (newValue == 0) return;
+		
 		var interval = setInterval(function() {
 			oldValue++;
 			$scope.$apply(function() {
@@ -65,6 +92,22 @@ app.controller('myController', function($scope) {
 				clearInterval(interval);
 			}
 		}, 1);
+
+		for (i = $scope.badges.length - 1; i > -1; i--) {
+			var badge = $scope.badges[i];
+			if (newValue >= badge.grams) {
+				$scope.newBadge(badge);
+				break;
+			}
+		}
+		/*
+		_.each($scope.badges.reverse(), function(badge) {
+			if (newValue >= badge.grams) {
+				$scope.newBadge(badge);
+				break;
+			}
+		});*/
+
  	});
 
  });

@@ -17,7 +17,7 @@ body {
 }
 
 #logo {
-	margin-top: 10%;
+	margin-top: 10px;
 }
 
 #logo #title {
@@ -30,9 +30,9 @@ body {
 
 #logo img {
 	margin-right: 10px;
-	border: 5px solid black;
+	border: 2px solid white;
 	-webkit-transform:rotate(-3deg);
-	box-shadow: 1px 1px 14px #000000;
+	box-shadow: 1px 1px 14px white;
 	border-radius: 5px;
 }
 
@@ -148,4 +148,87 @@ body {
 
 .new-paper-recycle .type-sign {
 	font-family: 'Lobster', cursive;
+}
+
+
+@-webkit-keyframes expand-relative{
+    0%{top:-500px}
+    100%{top:0}
+}
+
+.badge {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;	
+	padding: 20px 40px;
+	border-radius: 50%;	
+	box-shadow: 1px 1px 14px white;
+	overflow: auto;
+	-webkit-animation: expand-relative 2s;
+	-webkit-transition:all linear 0.5s;
+	position: relative;
+}
+
+.badge.ng-hide {
+	opacity: 0;
+	-webkit-animation: none;
+}
+
+
+.badge img {
+	height: 150px;
+	float: left;
+}
+
+.badge p {
+	float: right;
+	width: 204px;
+	font-size: 30px;
+}
+
+#lightbulb {
+	width: 300px;
+	background: -webkit-radial-gradient(top, #EBFF00 0%,#FF9900 100%);
+	border: 5px solid rgb(117, 39, 2);
+}
+
+#lightbulb p {
+	margin-top: 18px;
+	color: rgb(167, 0, 0);	
+}
+
+#tree {
+	width: 345px;
+	background: -webkit-radial-gradient(top, #64FF77 0%,#11801E 100%);
+	border: 5px solid rgb(1, 26, 10);
+}
+
+#tree p {
+	color: rgb(14, 58, 14);
+	margin-top: 34px;
+}
+
+#dolphin {
+	width: 440px;
+	background: -webkit-radial-gradient(top, #80ADFF 0%,#1246A2 100%);
+	border: 5px solid rgb(15, 35, 87);
+}
+
+#dolphin p {
+	margin-top: 29px;
+	margin-right: 11px;
+	color: rgb(14, 14, 48);
+}
+
+
+#planet {
+	width: 400px;
+	background: -webkit-radial-gradient(top, #FF5C00 0%,#810A0A 100%);
+	border: 5px solid rgb(78, 8, 5);
+}
+
+#planet p {
+	margin-top: 29px;
+	margin-right: 11px;
+	color: white;
 }
