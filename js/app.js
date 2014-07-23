@@ -1,63 +1,70 @@
- var app = angular.module('iSammy', ['ngAnimate']);
+var app = angular.module('iSammy', ['ngAnimate']);
 
 var s;
 
- app.controller('myController', function($scope) {
+app.filter('ucfirst', function() {
+
+	return function(input) {
+		if (input == null) return;
+	 	input = input.toLowerCase();
+	 	return input.substring(0,1).toUpperCase()+input.substring(1);
+	}
+
+});
+
+app.controller('myController', function($scope) {
 
  	s = $scope;
 
  	$scope.totalGrams = 0;
- 	$scope.newPlasticRecycle = false;
- 	$scope.newPaperRecycle = false;
+ 	$scope.totalGramsToDisplay = 0;
  	$scope.newRecycleModel = null;
+ 	$scope.showNewRecycle = false;
 
- 	var mock = function() {
+ 	$scope.mock = function() {
  		
- 		var list = [
- 			{ type: 'plastic', grams: 215 },
- 			{ type: 'paper', grams: 310 },
- 			{ type: 'plastic', grams: 532 },
- 			{ type: 'paper', grams: 821 },
- 			{ type: 'paper', grams: 512 }
- 		];
-
- 		var i = 0;
+ 		var randomType = 'paper', maximumGrams = 250, randomGrams;
 
  		setInterval(function() {
  			$scope.$apply(function() {
-	 			$scope.newRecycle(list[i]);
-	 			if (i == list.length - 1) {
-	 				i = 0;			
-	 			} else {
-		 			i++; 	
-	 			}
+ 				randomGrams = Math.floor((Math.random() * maximumGrams) + 40);
+ 				randomType = (randomType == 'plastic') ? 'paper' : 'plastic';
+
+	 			$scope.newRecycle({ type: randomType, grams: randomGrams });
  			});
- 		}, 3000);
+ 		}, 4000);
 
 
  	}
 
  	$scope.init = function() {
- 		mock();
+ 		$scope.mock();
  	};
 
  	$scope.newRecycle = function(newRecycle) {
  		
  		$scope.newRecycleModel = newRecycle;
- 		if (newRecycle.type == 'plastic') {
- 			$scope.newPlasticRecycle = true; 			
- 		} else {
- 			$scope.newPaperRecycle = true;
- 		}
+ 		$scope.showNewRecycle = true;
 
  		setTimeout(function() {
  			$scope.$apply(function() {
-	 			$scope.newPlasticRecycle = false;
-	 			$scope.newPaperRecycle = false;
+	 			$scope.showNewRecycle = false;
 		 		$scope.totalGrams += newRecycle.grams;
  			});
  		}, 1500);
 
  	}
+ 	$scope.$watch('totalGrams', function(newValue, oldValue) {
+ 		if (newValue == 0) return;
+		var interval = setInterval(function() {
+			oldValue++;
+			$scope.$apply(function() {
+				$scope.totalGramsToDisplay = oldValue;
+			});
+			if (oldValue >= newValue) {
+				clearInterval(interval);
+			}
+		}, 1);
+ 	});
 
  });

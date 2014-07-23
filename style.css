@@ -42,7 +42,8 @@ body {
 
 #score #amount {
 	margin: 0;
-	margin-top: -21px;
+	margin-top: -13px;
+	font-family: 'Lobster', cursive;
 }
 
 #score #amount #number {
@@ -136,14 +137,7 @@ body {
 	font-size: 20px;
 }
 
-
-#new-plastic-recycle img {
-	height: 300px;
-	float: left;
-}
-
-
-#new-paper-recycle img {
+.new-recycle img {
 	height: 267px;
 	float: left;
 	padding-left: 8px;
@@ -152,6 +146,6 @@ body {
 	left: 12px;
 }
 
-#new-paper-recycle .type-sign {
+.new-paper-recycle .type-sign {
 	font-family: 'Lobster', cursive;
 }
